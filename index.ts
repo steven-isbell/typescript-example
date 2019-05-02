@@ -50,7 +50,7 @@ type Attendee = {
   lname: string;
   age?: number;
   languages: string[];
-  contactInfo: {
+  contactInfo?: {
     email?: string;
     phone?: string;
   };
@@ -61,3 +61,31 @@ type Meetup = {
   location?: string;
   attendeeCount: number;
 };
+
+// Missing Required Property
+// const meetupList: Meetup[] = [
+//   {
+//     attendees: [
+//       {
+//         fname: 'Steven',
+//         languages: ['JavaScript']
+//       }
+//     ],
+//     attendeeCount: 58
+//   }
+// ];
+
+const meetupList: Meetup[] = [
+  {
+    attendees: [
+      {
+        fname: 'Steven',
+        lname: 'Isbell',
+        languages: ['JavaScript']
+      }
+    ],
+    attendeeCount: 58
+  }
+];
+
+/********  Interfaces *********/
