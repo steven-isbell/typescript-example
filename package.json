@@ -1,0 +1,7 @@
+{
+  "name": "typescript-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Steven Isbell <steveni_92@msn.com>",
+  "license": "MIT"
+}
