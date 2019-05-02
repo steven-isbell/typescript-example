@@ -38,3 +38,26 @@ const arrayOfStrings: string[] = ['Hello', 'World', 'Bye'];
 // arrayOfStrings.push(7) // typeError
 
 const arrayOfAnything: any[] = [];
+
+const myPromise: Promise<boolean> = new Promise(function(resolve, reject) {
+  resolve(true);
+});
+
+/********  Custom Types *********/
+
+type Attendee = {
+  fname: string;
+  lname: string;
+  age?: number;
+  languages: string[];
+  contactInfo: {
+    email?: string;
+    phone?: string;
+  };
+};
+
+type Meetup = {
+  attendees: Attendee[];
+  location?: string;
+  attendeeCount: number;
+};
