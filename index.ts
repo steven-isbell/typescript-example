@@ -1,4 +1,4 @@
-// Basic Types
+/********  Basic Types *********/
 
 // string
 let fname: string = 'Steven';
@@ -30,3 +30,11 @@ let whoKnows = 8;
 
 // or explicit `any`
 let iCanBeAnything: any = [];
+
+// Array
+
+const arrayOfStrings: string[] = ['Hello', 'World', 'Bye'];
+
+// arrayOfStrings.push(7) // typeError
+
+const arrayOfAnything: any[] = [];
