@@ -150,11 +150,13 @@ interface UserDetails {
 }
 
 interface UserDetails {
-  email: string;
+  height: number;
+  weight: number;
 }
 
 const userDetails: UserDetails = {
   name: 'John',
   age: 26,
-  email: 'john@john.com'
+  height: 72,
+  weight: 180
 };
