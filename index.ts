@@ -37,7 +37,9 @@ const arrayOfStrings: string[] = ['Hello', 'World', 'Bye'];
 
 // arrayOfStrings.push(7) // typeError
 
-const arrayOfAnything: any[] = [];
+const arrayOfAnything = [];
+
+// arrayOfAnything.push(1, 'World', {name: 'Jeff'}); // can't change const intialization, valid
 
 const myPromise: Promise<boolean> = new Promise(function(resolve, reject) {
   resolve(true);
@@ -45,6 +47,7 @@ const myPromise: Promise<boolean> = new Promise(function(resolve, reject) {
 
 /********  Custom Types *********/
 
+// A mix of required and optional properties
 type Attendee = {
   fname: string;
   lname: string;
@@ -56,6 +59,7 @@ type Attendee = {
   };
 };
 
+// Composing types
 type Meetup = {
   attendees: Attendee[];
   location?: string;
@@ -63,6 +67,7 @@ type Meetup = {
 };
 
 // Missing Required Property
+
 // const meetupList: Meetup[] = [
 //   {
 //     attendees: [
@@ -88,4 +93,68 @@ const meetupList: Meetup[] = [
   }
 ];
 
+/********  Union Types *********/
+
+// When you don't want to use any, but could have multiple types as a value
+
+// create optional properties
+let optionalProp: string | undefined;
+
+optionalProp = 'Here I am';
+
+// handle method output
+const users = ['Steven', 'Spencer', 'Jordan'];
+
+let selectedUser: string | undefined = users.find(user => user === 'Jeff');
+
+// handle various inputs
+function square(num: string | number): number | string {
+  if (typeof num === 'string') {
+    let parsed: number = parseInt(num);
+    if (isNaN(parsed)) return 'Invalid String Argument';
+    // potential mistake one could make ignoring your parsed variable
+    // return num ** 2
+    return parsed ** 2;
+  }
+  return num ** 2;
+}
+
 /********  Interfaces *********/
+
+// Extending from other interfaces
+interface Animal {
+  type: string;
+}
+interface Horse extends Animal {
+  breed: string;
+  sayBreed(): string;
+}
+
+// implementing in a class
+class Horse implements Horse {
+  type = 'Horse';
+  breed = 'Quarterhorse';
+  sayBreed() {
+    return `I'm a ${this.breed}`;
+  }
+}
+
+const fido: Horse = new Horse();
+
+console.log(fido.sayBreed());
+
+// Interfaces Merge on Duplicate Declarations
+interface UserDetails {
+  name: string;
+  age: number;
+}
+
+interface UserDetails {
+  email: string;
+}
+
+const userDetails: UserDetails = {
+  name: 'John',
+  age: 26,
+  email: 'john@john.com'
+};
