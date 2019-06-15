@@ -53,6 +53,7 @@ type Attendee = {
   lname: string;
   age?: number;
   languages: string[];
+  // The ? denotes an optional property on Types and Interfaces
   contactInfo?: {
     email?: string;
     phone?: string;
